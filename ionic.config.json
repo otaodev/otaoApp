@@ -1,0 +1,7 @@
+{
+  "name": "otaoApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
