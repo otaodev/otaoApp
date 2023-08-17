@@ -22,20 +22,26 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Home from './pages/secure/Home';
+import { useState } from 'react';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/">
-          <Login />
-        </Route>
-        <Route component={Register} exact path="/register"/>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+
+  return (
+    < IonApp >
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Route component={Register} exact path="/register" />
+          <Route component={Home} exact path="/home" />
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp >
+  );
+};
 
 export default App;
