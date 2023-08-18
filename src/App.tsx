@@ -24,23 +24,27 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/secure/Home';
 import { useState } from 'react';
+import { AuthProvider } from './contexts/AuthContext';
 
 setupIonicReact();
 
 const App: React.FC = () => {
 
   return (
+    <AuthProvider>
     < IonApp >
       <IonReactRouter>
         <IonRouterOutlet>
           <Route exact path="/">
             <Login />
+            console.log()
           </Route>
           <Route component={Register} exact path="/register" />
           <Route component={Home} exact path="/home" />
         </IonRouterOutlet>
       </IonReactRouter>
     </IonApp >
+    </AuthProvider>
   );
 };
 

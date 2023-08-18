@@ -1,5 +1,5 @@
 const keycloakConfig = {
-    url: 'http://localhost:8080',
+    url: 'http://172.18.0.1:8080',
     realm: 'otaodev-realm',
     clientId: 'otaodev-client',
   };

@@ -1,20 +1,17 @@
 import React, { useState } from "react";
-
 import { IonButton, IonCard, IonCardContent, IonContent, IonFooter, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar } from "@ionic/react";
-
 import { logInOutline, personCircleOutline } from "ionicons/icons";
-
 import keycloakConfig from '../configs/keycloak-config.js';
-
 import axios from 'axios';
-
 import OtaoLogo from "../assets/otao-logo.svg";
+import {useAuth} from './../contexts/AuthContext.js';
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [authenticated, setAuthenticated] = useState(false);
-
+    const { setAccessToken } = useAuth();
+    
     const doLogin = async (event: any) => {
         event.preventDefault();
 
@@ -37,7 +34,10 @@ const Login: React.FC = () => {
                 }
             );
 
+            const token = response.data.access_token;
+
             setAuthenticated(true);
+            setAccessToken(token);
 
             window.location.href = '/home';
         } catch (error) {
@@ -97,3 +97,7 @@ const Login: React.FC = () => {
 };
 
 export default Login;
+
+function setAccessToken(token: any) {
+    throw new Error("Function not implemented.");
+}
